@@ -1,0 +1,1 @@
+Flask está configurado por defecto para utilizar las carpetas «templates» para archivos HTML y la carpeta «static» para archivos de estilo (CSS), imágenes (carpeta «images») entre otros como archivos Javascript.
