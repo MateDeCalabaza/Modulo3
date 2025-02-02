@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 #Crear una instancia de la clase Flask, llamada "app"
 app = Flask(__name__)
@@ -10,9 +10,15 @@ app = Flask(__name__)
 #Existen muchos tipos de solicitudes: GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONs, TRACE o PATCH 
 
 #INICIO
-@app.route('/', methods=["GET"])
-def holamundo():
-    return render_template("/index.html")
+@app.route('/', methods=["GET", "POST"])
+def index():
+    #Importamos el módulo request para poder específicar qué hacer frente a distintos tipos de solicitudes
+    if request.method == "POST":
+        #almacena los datos del campo «Nombre» del formulario en la variable «nombre». Luego recargamos la página (mediante el return) pero pasando la variable "nombre" como argumento.
+        nombre = request.form["Nombre"]
+        return render_template("/index.html", nombre = nombre)
+    else:
+        return render_template("/index.html")
 
 #MIS PROYECTOS
 @app.route('/mis-proyectos', methods=["GET"])

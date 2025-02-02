@@ -1,4 +1,6 @@
-<!--Este es un template que utiliza el framework Bootstrap, el cual sirve para hacer front end. Acá lo que estamos haciendo es configurar su uso de forma online, sin tener que descargarlo, y creamos la base (o template PADRE) que se repetirá visualmente en todas las URLs de nuestra página así evitamos copiar siempre el mismo código.-->
+<!--Este es un template que utiliza el framework Bootstrap, el cual sirve para hacer front end. Acá lo que estamos haciendo es configurar su uso de forma online, sin tener que descargarlo, y creamos la base (o template PADRE) que se repetirá visualmente en todas las URLs de nuestra página así evitamos copiar siempre el mismo código.
+
+A saber: Toda la info sobre cómo aplicar Bootstrap la encontramos en https://getbootstrap.com/docs/4.4/getting-started/introduction/-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +22,15 @@
         <div class="container">    <!-- Aquí estamos usando la clase "container" de Bootstrap --> 
             <div class="row">    <!-- Aquí estamos usando la clase "row" que significa "Fila", "o hilera"-->
             <div class="col-8">    <!-- Aquí nos esta creando una columna de tamaño 8-->
-                <!--Utilizamos un bloque de Jinja2 que permite indicar dónde se va a mostrar la plantilla HIJA-->
-                {%block content%}
+                <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
+                {%block columna8%}
                 {%endblock%}
             </div>      
-            <div class="col-4">col-4</div>     <!-- Aquí nos esta creando una columna de tamaño 4--> 
+            <div class="col-4">    <!-- Aquí nos esta creando una columna de tamaño 4--> 
+                <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
+                {%block columna4%}
+                {%endblock%}
+            </div>
           </div>                               <!--Cierra el row--> 
       </div>                                   <!-- Cierra el container-->
     </div>
