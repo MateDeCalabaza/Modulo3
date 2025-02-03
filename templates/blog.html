@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-<body>
-    <h1>Bienvenido a mi blog</h1>
-</body>
-</html>
+{% extends "base/base.html" %}    <!--Significa que el archivo index se extiende a partir de base.html, es decir, es su hija-->
+
+{% block title %}Blog{% endblock %}    <!--Se indica qué título mostrar-->
+
+{% block columna8 %}    <!--Aquí el contenido a mostrar-->
+<br>
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Este es mi blog</h4>
+    <p>No hay ningún post</p>
+    <hr>
+    <p class="mb-0">Excelente!</p>
+</div>
+{% endblock %}
+
+{%block columna4%}
+<br>
+<p>Formulario</p>    <!--Creamos un formulario-->
+<form action="/" method="post">    <!--En "action" ponemos la dirección donde será procesada la información, en este caso en index, que si vemos en el run.py, es simplemente "/". Luego indicamos el method a usarse. También debemos permitir en run.py que el método POST se habilite.-->
+    <div class="form-group">
+      <label for="name">Ingrese su nombre</label>
+      <input type="text" class="form-control" name="Nombre">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+{%endblock%}

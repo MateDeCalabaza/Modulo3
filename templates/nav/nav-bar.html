@@ -1,39 +1,39 @@
 <!--Usamos una barra de navegación elegida desde la página de Bootstrap (https://getbootstrap.com/docs/4.4/components/navbar/).
-A su vez podemos diseñarla desde la página https://work.smarchal.com/twbscolor/css para luego crear un archivo css en la carpeta static con el código que nos otorga la página, e incluirla en este código con un bloque de jinja2 llamado url_for-->
+A su vez podemos diseñarla desde la página https://work.smarchal.com/twbscolor/css para luego crear un archivo css en la carpeta static con el código que nos otorga la página, e incluirla en este código con un bloque de jinja2 llamado url_for. Este bloque luego lo usamos en los distintos botones de la barra de navegación para linkearlos a los templates. Hay que tener en cuenta que no se debe poner la ruta ("/templates/blog.html" por ejemplo) sino que lleva como parámetro el nombre de la función de la ruta que definimos en el archivo run.py ("mi_blog" en ese caso)-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-bar.css' ) }}">
 
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Barra de navegación</a>
+    <a class="navbar-brand" href="{{ url_for("index")}}">Barra de navegación</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        <li class="nav-item {% if request.endpoint=='index' %}active{%endif %}">
+          <a class="nav-link" href="{{ url_for("index")}}">Inicio<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item {% if request.endpoint=='mi_blog' %}active{%endif %}">
+          <a class="nav-link" href="{{ url_for("mi_blog")}}">Blog</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+          <a class="nav-link dropdown-toggle" href="{{ url_for("mostrar_proyectos")}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mis proyectos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Proyecto 1</a>
+            <a class="dropdown-item" href="#">Proyecto 2</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Proyecto 3</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li class="nav-item {% if request.endpoint=='contacto' %}active{%endif %}">
+          <a class="nav-link disabled" href="{{ url_for("contacto")}}" tabindex="-1" aria-disabled="true">Contacto</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </nav>

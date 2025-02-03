@@ -20,21 +20,20 @@ def index():
     else:
         return render_template("/index.html")
 
+#BLOG
+@app.route("/blog", methods=["GET"])
+def mi_blog():
+    return render_template("/blog.html")
+
 #MIS PROYECTOS
 @app.route('/mis-proyectos', methods=["GET"])
-def mostrarproyectos():
+def mostrar_proyectos():
     return render_template("/mis_proyectos.html")
 
 #CONTACTO
 @app.route("/contacto", methods=["GET"])
 def contacto():
     return render_template("/contacto.html")
-
-#BLOG
-@app.route("/blog", methods=["GET"])
-def mi_blog():
-    return render_template("/blog.html")
-
 
 #Ejecutar nuestra app cuando ejecutemos este archivo run.py
 #A su vez, al ejecutar en modo "debug=true" lo estamos haciendo en modo de desarrollo
