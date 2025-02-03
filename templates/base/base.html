@@ -9,6 +9,8 @@ A saber: Toda la info sobre cómo aplicar Bootstrap la encontramos en https://ge
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Añadimos la dirección para los archivos CSS y JS de Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--AGREGO MIS PROPIOS SCC-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css')}}">
     <!--Usamos un bloque de Jinja2 (motor de renderizado de templates para python que se encuentra incluido por defecto en FLASK) que permite heredar el título de la plantilla HIJA-->
     <title>{% block title %} {% endblock %}</title>
 </head>
@@ -18,23 +20,24 @@ A saber: Toda la info sobre cómo aplicar Bootstrap la encontramos en https://ge
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
-    {% include "nav/nav-bar.html" %}    <!--El bloque «include» nos permite incluir otros archivos HTML dentro de cualquier template HTML-->
-
-    <div class="container-fluid">    <!--Esto es un contenedor principal-->
-        <div class="container">    <!-- Aquí estamos usando la clase "container" de Bootstrap --> 
-            <div class="row">    <!-- Aquí estamos usando la clase "row" que significa "Fila", "o hilera"-->
-            <div class="col-8">    <!-- Aquí nos esta creando una columna de tamaño 8-->
-                <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
-                {% block columna8 %}
-                {% endblock %}
-            </div>      
-            <div class="col-4">    <!-- Aquí nos esta creando una columna de tamaño 4--> 
-                <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
-                {% block columna4 %}
-                {% endblock %}
-            </div>
-          </div>                               <!--Cierra el row--> 
-      </div>                                   <!-- Cierra el container-->
+    <div class="capa1">
+        {% include "nav/nav-bar.html" %}    <!--El bloque «include» nos permite incluir otros archivos HTML dentro de cualquier template HTML-->
+        <div class="container-fluid">    <!--Esto es un contenedor principal-->
+            <div class="container">    <!-- Aquí estamos usando la clase "container" de Bootstrap --> 
+                <div class="row">    <!-- Aquí estamos usando la clase "row" que significa "Fila", "o hilera"-->
+                    <div class="col-8">    <!-- Aquí nos esta creando una columna de tamaño 8-->
+                        <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
+                        {% block columna8 %}
+                        {% endblock %}
+                    </div>      
+                    <div class="col-4">    <!-- Aquí nos esta creando una columna de tamaño 4--> 
+                        <!--Creamos y nombramos a un bloque de Jinja2 que permite indicar dónde se va a mostrar un bloque de la plantilla HIJA-->
+                        {% block columna4 %}
+                        {% endblock %}
+                    </div>
+                </div>                               <!--Cierra el row--> 
+            </div>                                   <!-- Cierra el container-->
+        </div>
     </div>
 </body>
 </html>

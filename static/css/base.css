@@ -1,0 +1,12 @@
+body {
+    background-image: url('/static/images/fondo_arbol.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.capa1 {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,0.8211659663865546) 0%, rgba(31,9,121,0.8911939775910365) 35%, rgba(188,0,255,0.5102415966386555) 100%);
+    width: auto;
+    min-height:800px;
+}

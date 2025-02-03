@@ -10,6 +10,7 @@ A su vez podemos diseñarla desde la página https://work.smarchal.com/twbscolor
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <!--agrego mediante jinja2 un condicional de python pero se debe evitar tener código en las vistas-->
         <li class="nav-item {% if request.endpoint=='index' %}active{%endif %}">
           <a class="nav-link" href="{{ url_for("index")}}">Inicio<span class="sr-only">(current)</span></a>
         </li>
