@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/contacto2.css')}}">
+
+{% extends "base/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %} <!-- Importamos bootstrap -->
+
+{%block head%}
+<!-- acá iría el script del captcha si es que yo lo usara -->
+{%endblock%}
+
+{% block title %}Contacto{% endblock %}
+{%block columna8 %}
+<div class ="container-fluid" id="formulario">
+    <div class = "title-neon" >
+        <h3>Enviar mensaje a través del espacio</h3>
+        <p class="mb-4"></p>
+        <p class = "p-neon">Seguro tenemos mucho de que hablar! Puedes contactarme a través del siguiente formulario:</p>
+        <br>
+    </div>
+<!--Aquí estaba el formulario HTML anteriormente, en contacto.html-->
+</div>
+<!-- colocamos el form con WTForms usando un Quick_Form -->
+<div class ="container-fluid" id="formulario">
+    {{ form.csrf_token() }}
+    {{ wtf.quick_form(form) }}
+</div>
+{%endblock %}
+
+{% block columna4 %}
+{% endblock %}

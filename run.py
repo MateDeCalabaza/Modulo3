@@ -1,7 +1,16 @@
 from flask import Flask, render_template, request
+from forms import MiFormulario
+#Importamos bootstrap para el formulario hecho en contacto2
+from flask_bootstrap import Bootstrap
 
 #Crear una instancia de la clase Flask, llamada "app"
 app = Flask(__name__)
+#Creamos una clave secreta gracias a la librería de WTFlask (parte del módulo "forms") la cual sirve para mejorar la seguridad de los formularios que nos envían.
+app.secret_key = "quequilomboestolpm"
+#Decoramos nuestra app con bootstrap
+Bootstrap(app)
+
+
 
 #Crear rutas con sus correspondientes funciones:
 #En flask, a los decoradores se los conoce como "pocesador de contexto" y lo que sigue se trata de una RUTA. Lo que hicimos acá es llamar a un método de la instancia "app".
@@ -40,6 +49,18 @@ def contacto():
         return render_template("/contacto.html")
     else:
         return render_template("/contacto.html")
+
+#CONTACTO2
+@app.route("/contacto2", methods=["GET", "POST"])
+def contacto2():
+    #Importamos el archivo forms.py donde se encuentra realizado el formulario de tipo "clase" llamada MiFormulario.
+    #En este caso no necesitamos comprobar si se trata de una solicitud GET o POST debido a que simplemente el condicional comprueba «En caso de ser validos los datos al momento de hacer submit» procesar lo que esta dentro del bloque
+    miform = MiFormulario()
+    if miform.validate_on_submit():
+       print(f"Name:{miform.name.data},Email:{miform.email.data},message:{miform.message.data}")
+    else:
+        print("Algún dato es invalido")
+    return render_template("contacto2.html", form=miform)
 
 #Ejecutar nuestra app cuando ejecutemos este archivo run.py
 #A su vez, al ejecutar en modo "debug=true" lo estamos haciendo en modo de desarrollo

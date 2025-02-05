@@ -12,6 +12,7 @@ A saber: Toda la info sobre cómo aplicar Bootstrap la encontramos en https://ge
     <!--AGREGO MIS PROPIOS SCC-->
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css')}}">
     <!--Usamos un bloque de Jinja2 (motor de renderizado de templates para python que se encuentra incluido por defecto en FLASK) que permite heredar el título de la plantilla HIJA-->
+    {% block head %} <!-- Se deja este espacio para scripts (por ej, de un Captcha pero yo no lo incluyo) -->{% endblock %}
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
