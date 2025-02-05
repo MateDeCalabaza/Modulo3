@@ -1,0 +1,15 @@
+#formulario {
+    background-color: #7f0f8b;
+}
+
+#comentari{
+    padding: 7px 15px;
+}
+
+label {
+    color: #fff;
+}
+
+textarea {
+    padding-left: 30px;
+}

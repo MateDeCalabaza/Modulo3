@@ -31,9 +31,15 @@ def mostrar_proyectos():
     return render_template("/mis_proyectos.html")
 
 #CONTACTO
-@app.route("/contacto", methods=["GET"])
+@app.route("/contacto", methods=["GET", "POST"])
 def contacto():
-    return render_template("/contacto.html")
+    if request.method == "POST":
+        name = request.form["nombre_contacto"]
+        email = request.form["email_contacto"]
+        comentario = request.form["mensaje_contacto"]
+        return render_template("/contacto.html")
+    else:
+        return render_template("/contacto.html")
 
 #Ejecutar nuestra app cuando ejecutemos este archivo run.py
 #A su vez, al ejecutar en modo "debug=true" lo estamos haciendo en modo de desarrollo

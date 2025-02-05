@@ -1,27 +1,41 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/contacto.css')}}">
+
 {% extends "base/base.html" %}    <!--Significa que el archivo index se extiende a partir de base.html, es decir, es su hija-->
 
 {% block title %}Contacto{% endblock %}    <!--Se indica qué título mostrar-->
 
 {% block columna8 %}    <!--Aquí el contenido a mostrar-->
 <br>
-<div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Este es mi contacto</h4>
-    <p>No tiene nada aún</p>
-    <hr>
-    <p class="mb-0">Excelente!</p>
-</div>
+<!--Colocamos un form elegido de la página de bootstrap-->
+<form method="post" action="/contacto" class="form-horizontal" id="formulario">
+    <div class="form-group row">
+        <label for="nombre_contacto" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="nombre_contacto" placeholder="Nombre">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email_contacto" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" name="email_contacto" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="mensaje_contacto" class="col-form-label id="comentario">Dejanos tus comentarios</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="mensaje_contacto" rows="4">
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+</form>
 {% endblock %}
 
 {%block columna4%}
-<br>
-<div class="alert alert-success" role="alert">
-    <p>Formulario</p>    <!--Creamos un formulario-->
-    <form action="/" method="post">    <!--En "action" ponemos la dirección donde será procesada la información, en este caso en index, que si vemos en el run.py, es simplemente "/". Luego indicamos el method a usarse. También debemos permitir en run.py que el método POST se habilite.-->
-        <div class="form-group">
-        <label for="name">Ingrese su nombre</label>
-        <input type="text" class="form-control" name="Nombre">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-</div>
 {%endblock%}
